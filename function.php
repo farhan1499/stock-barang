@@ -2,7 +2,7 @@
 session_start();
 
 //Membuat koneksi ke database
-$conn = mysqli_connect("localhost","root","","stockbarang");
+$conn = mysqli_connect("localhost:3307","root","m4nd4l4","stockbarang");
 
 //Menambah barang baru
 if( isset( $_POST['addnewbarang'] ) ) {
@@ -96,6 +96,3 @@ if( isset($_POST['hapusbarang'] ) ) {
         header('location:index.php');
     }
 }
-
-
-?>
