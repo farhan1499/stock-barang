@@ -5,22 +5,6 @@ session_start();
 $conn = mysqli_connect("localhost", "root", "", "stockbarang");
 // $conn = mysqli_connect("localhost:3307","root","m4nd4l4","stockbarang");
 
-//Register
-if (isset($_POST['regist'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $level = $_POST['level'];
-
-    $userbaru = mysqli_query($conn, "INSERT INTO login(email, password, level) VALUES('$email', '$password', '$level')");
-
-    if ($userbaru) {
-        header('location:regist.php');
-    } else {
-        echo 'Gagal';
-        header('location:regist.php');
-    }
-}
-
 //Menambah barang baru
 if (isset($_POST['addnewbarang'])) {
     $namabarang = $_POST['namabarang'];

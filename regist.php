@@ -1,3 +1,24 @@
+<?php
+
+require_once "function.php";
+
+//Register
+if (isset($_POST['regist'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $level = 2;
+
+    $userbaru = mysqli_query($conn, "INSERT INTO login(email, password, level) VALUES('$email', '$password', '$level')");
+
+    if ($userbaru) {
+        header('location:regist.php');
+    } else {
+        echo 'Gagal';
+        header('location:regist.php');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +53,6 @@
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="password" id="inputPassword" type="password" placeholder="Password" />
                                             <label for="inputPassword">Password</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="level" id="inputLevel" type="number" placeholder="Level" />
-                                            <label for="inputLevel">Choose Your Level 1/2</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <button class="btn btn-primary" name="regist">Regist</button>
